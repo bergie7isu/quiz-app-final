@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(teampicture.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: center;
+}
+
+nav {
+    display: none;
+    height: 50px;
+    background-color: black;
+}
+
+h1 {
+    font-size: 80px;
+    text-align: center;
+    color: white;
+    margin-top: 150px;
+}
+
+p.teaser {
+    font-size: 30px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+}
+
+button.start {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    height: 100px;
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+footer {
+    margin-top: 150px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+p.audio-prompt {
+    margin-top: 10px;
+}
