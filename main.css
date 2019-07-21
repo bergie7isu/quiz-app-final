@@ -14,21 +14,67 @@ body {
 }
 
 nav {
-    display: none;
     height: 50px;
-    background-color: black;
+    border: 2px white solid;
+    margin: 5px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav div {
+    display: none;
+    text-align: center;
+    margin: auto;
+    color: gray;
+}
+
+.question-number {
+    margin-left: 5px;
+    margin-right: auto;
+}
+
+.quiz-app-name {
+    margin-left: 30px;
+    margin-right: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.total-score {
+    margin-right: 5px;
+    margin-left: auto;
+}
+
+main {
+    border: 2px white solid;
+    margin: 5px;
+}
+
+.main-title, .question {
+    height: 100px;
+    border: 2px white solid;
+    margin: 5px;
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 40px;
     text-align: center;
     color: white;
-    margin-top: 150px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quiz-question {
+    font-size: 30px;
+    color: white;
+    text-align: center;
 }
 
 p.teaser {
-    font-size: 30px;
-    width: 50%;
+    font-size: 25px;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
@@ -36,24 +82,140 @@ p.teaser {
     color: white;
 }
 
-button.start {
+.subtitle, .answers {
+    height: 230px;
+    border: 2px white solid;
+    margin: 5px;
+}
+
+form {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+button.start-quiz, button.submit-answer {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
-    height: 100px;
+    margin-top: 5px;
+    height: 75px;
     width: 250px;
     border-radius: 10px;
     font-size: 30px;
+    background-color: blue;
+    color: darkgray;
+}
+
+button.submit-answer {
+    display: none;
+}
+
+button.start-quiz:hover, button.submit-answer:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+.start, .feedback {
+    height: 150px;
+    border: 2px white solid;
+    margin: 5px;
 }
 
 footer {
-    margin-top: 150px;
+    height: 65px;
+    border: 2px white solid;
+    margin: 5px;
     text-align: center;
     color: white;
     font-size: 20px;
 }
 
-p.audio-prompt {
-    margin-top: 10px;
+audio {
+    margin-top: 5px;
+    height: 30px;
+    width: 250px;
+}
+
+@media screen and (min-width: 600px) {
+    nav {
+        height: 75px;
+    }
+    
+    .question-number, .total-score {
+        font-size: 25px
+    }
+    
+    .quiz-app-name {
+        font-size: 30px;
+    }
+
+    .main-title, .question {
+        height: 150px;
+    }
+    
+    h1 {
+        font-size: 65px;
+    }
+    
+    p.teaser {
+        font-size: 40px;
+        width: 75%;
+    }
+    
+    .subtitle, .answers {
+        height: 400px;
+    }
+    
+    button.start-quiz, button.submit-answer {
+        height: 100px;
+        width: 300px;
+        font-size: 40px;
+    }
+    
+    .start, .feedback {
+        height: 250px;
+    }
+    
+    footer {
+        height: 100px;
+        font-size: 25px;
+    }
+    
+    audio {
+        height: 50px;
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1350px) {
+    nav {
+        height: 100px;
+    }
+    
+    .question-number, .total-score {
+        font-size: 30px
+    }
+    
+    .quiz-app-name {
+        font-size: 60px;
+    }
+
+    h1 {
+        font-size: 100px;
+        width: 100%;
+    }
+    
+    p.teaser {
+        font-size: 60px;
+        width: 60%;
+    }
+    
+    .subtitle, .answers {
+        height: 425px;
+    }
+    
+    .start, .feedback {
+        height: 275px;
+    }
 }
