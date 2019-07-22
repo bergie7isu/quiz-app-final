@@ -128,12 +128,19 @@ function submitAnswer() {
     });
 }
 
+function lowerVolume() {
+    let turnItDown = document.getElementById("office-theme");
+    turnItDown.volume = 0.35;
+    console.log("turned down the volume")
+}
+
 //start the quiz
 //remove the start button
 //set top "nav" bar to black background and show its divs
 //display question
 //display the answer form
 function startQuiz() {
+    lowerVolume();
     $('.js-start-quiz').click(function(event) {
         $(this).remove();
         $("nav").css("background-color", "black");
