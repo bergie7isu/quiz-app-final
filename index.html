@@ -9,26 +9,28 @@
     </head>
     <body>
         <nav>
-            <div class="question-number">Question: <div><span>1</span> of 10</div></div>
+            <div class="question-number">Question: <div><span class="question-number">1</span> of 10</div></div>
             <div class="quiz-app-name">The Ultimate Office <div>Quiz App</div></div>
-            <div class="total-score">Total Score: <span>0</span></div>
+            <div class="total-score">Total Score: <span class="score">0</span></div>
         </nav>
         <main>
             <section class="main-title question js-question">
-                <h1>The Ultimate Office Quiz App</h1>
+                <h1>The Ultimate Office <div>Quiz App</div></h1>
             </section>
             <section class="subtitle answers js-answers">
                 <p class="teaser">Do you have what it takes to join the ranks of Dunder Mifflin: The People Person's Paper People?</p>
             </section>
-            <section class="start feedback">
+            <section class="start feedback js-feedback">
                 <button role="button" class="start-quiz js-start-quiz">Let's Find Out!</button>
-                <button role="button" class="submit-answer js-submit-answer">Submit</button>
             </section>
         </main>
         <footer>
             <audio class="theme" controls loop>
                 <source src="theme-music.ogg"/>
                 <source src="theme-music.mp3"/>
+            </audio>
+            <audio id="no-please-no">
+                <source src="no-please-no.mp3" type="audio/mp3">
             </audio>
             <p class="audio-theme-prompt">Need some music to get in the mood?</p>
         </footer>
