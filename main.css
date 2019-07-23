@@ -110,7 +110,7 @@ p.teaser {
     padding: 5px;
 }
 
-.answer-option:hover {
+.answer-option-hover:hover {
     background-color: blue;
 }
 

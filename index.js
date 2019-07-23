@@ -9,16 +9,16 @@ function displayNextQuestion() {
 //set the html in the answer section
 function displayNextAnswer() {
     $(".js-answers").html(`<form class="answer-form js-answer-form">
-            <label for="option1" class="answer-option">
+            <label for="option1" class="answer-option answer-option-hover">
                 <input type="radio" name="multi-choice" id="option1" value="${appData[questionNumber].answers[0]}" required>${appData[questionNumber].answers[0]}
             </label>
-            <label for="option2" class="answer-option">
+            <label for="option2" class="answer-option answer-option-hover">
                 <input type="radio" name="multi-choice" id="option2" value="${appData[questionNumber].answers[1]}" required>${appData[questionNumber].answers[1]}
             </label>
-            <label for="option3" class="answer-option">
+            <label for="option3" class="answer-option answer-option-hover">
                 <input type="radio" name="multi-choice" id="option3" value="${appData[questionNumber].answers[2]}" required>${appData[questionNumber].answers[2]}
             </label>
-            <label for="option4" class="answer-option">
+            <label for="option4" class="answer-option answer-option-hover">
                 <input type="radio" name="multi-choice" id="option4" value="${appData[questionNumber].answers[3]}" required>${appData[questionNumber].answers[3]}
             </label>
             <button type="submit" class="submit-answer">Submit</button>
@@ -115,6 +115,14 @@ function quizQuestionWrong() {
     feedbackWrong();
 }
 
+//disable the radio buttons
+function disableRadioButtons() {
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById(`option${i}`).disabled = true;
+        $(`label[for="option${i}"]`).removeClass('answer-option-hover');
+    };
+}
+
 //listen for the 'submit' button to be clicked and check if the answer is right
 function submitAnswer() {
     $('form').on('submit', function(event) {
@@ -127,6 +135,7 @@ function submitAnswer() {
         else {
             quizQuestionWrong();
         }
+        disableRadioButtons();
     });
 }
 
