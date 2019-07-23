@@ -11,11 +11,12 @@ body {
     background-repeat: no-repeat;
     background-color: black;
     background-position: center;
+    min-width: 350px;
 }
 
 nav {
     height: 50px;
-    margin: 5px;
+    margin: 0px 0px 5px 0px;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -68,7 +69,7 @@ h1 div {
     display: inline-block;
 }
 
-.quiz-question {
+.quiz-question, .final-score {
     font-size: 30px;
     color: white;
     text-align: center;
@@ -104,9 +105,9 @@ p.teaser {
     width: 100%;
     border-radius: 5px;
     border: 2px black solid;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
-    padding: 10px;
+    padding: 5px;
 }
 
 .answer-option:hover {
@@ -115,12 +116,11 @@ p.teaser {
 
 input[type="radio"] {
     margin-right: 10px;
-    vertical-align: middle;
-    width: 25px;
-    height: 25px;
+    width: 13px;
+    height: 13px;
 }
 
-button.start-quiz, button.submit-answer, button.next-question {
+button.start-quiz, button.submit-answer, button.next-question, button.try-again {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -138,7 +138,7 @@ button.next-question {
     color: black;
 }
 
-button.start-quiz:hover, button.submit-answer:hover, button.next-question:hover {
+button.start-quiz:hover, button.submit-answer:hover, button.next-question:hover, button.try-again:hover {
     background-color: lightblue;
     color: black;
 }
@@ -161,9 +161,10 @@ h3 {
 h4 {
     text-align: center;
     font-size: 20px;
+    color: white;
 }
 
-img.correct-picture, img.wrong-picture {
+img.correct-picture, img.wrong-picture, img.character-picture {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -183,6 +184,8 @@ audio {
     height: 30px;
     width: 250px;
 }
+
+
 
 @media screen and (min-width: 600px) {
     nav {
@@ -205,7 +208,7 @@ audio {
         font-size: 65px;
     }
     
-    .quiz-question {
+    .quiz-question, .final-score {
         font-size: 40px;
     }
 
@@ -224,15 +227,15 @@ audio {
     }
 
     .answer-option {
-        font-size: 50px
+        font-size: 26px;
     }
 
     input[type="radio"] {
-        width: 30px;
-        height: 30px;
+        width: 18px;
+        height: 18px;
     }
 
-    button.start-quiz, button.submit-answer {
+    button.start-quiz, button.submit-answer, button.next-question, button.try-again {
         height: 100px;
         width: 300px;
         font-size: 40px;
@@ -250,7 +253,7 @@ audio {
         font-size: 30px;
     }
 
-    img.correct-picture, img.wrong-picture {
+    img.correct-picture, img.wrong-picture, img.character-picture {
         width: 50%;
     }
 
@@ -283,7 +286,7 @@ audio {
         width: 100%;
     }
     
-    .quiz-question {
+    .quiz-question, .final-score {
         font-size: 50px;
     }
 
@@ -301,6 +304,15 @@ audio {
         height: 420px;
     }
 
+    .answer-option {
+        font-size: 30px;
+    }
+
+    input[type="radio"] {
+        width: 20px;
+        height: 20px;
+    }
+
     .start, .feedback {
         min-height: 275px;
     }
@@ -313,7 +325,7 @@ audio {
         font-size: 40px;
     }
 
-    img.correct-picture, img.wrong-picture {
+    img.correct-picture, img.wrong-picture, img.character-picture {
         width: 30%;
     }
 }

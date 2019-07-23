@@ -26,28 +26,42 @@ function displayNextAnswer() {
 }
 
 //increase the score by 1
-//update the score in the app
 function addPoint() {
     totalScore++;
     $('.score').text(totalScore);
 }
 
+//increase the question number by 1
 function increaseQuestionNumber() {
     questionNumber++;
     $('span.question-number').text(questionNumber+1);
 }
 
+//empty the feedback section
 function clearFeedback() {
     $('.js-feedback').empty();
 }
 
-function loadResults() {
-    console.log("we've made it to the end!");
-    clearFeedback();
-    $(".js-question").html(`<div class="quiz-question">You scored ${totalScore} out of 10!</div>`);
-    $(".js-answers").empty();
+//restart the quiz
+function restartQuiz() {
+    $('.try-again').click(function(event) {
+        location.reload()
+    });
 }
 
+//display the final results page
+function loadResults() {
+    clearFeedback();
+    $(".js-question").html(`<div class="final-score">You scored ${totalScore} out of 10!</div>`);
+    $(".js-answers").html(`<h4>You're ${characterResult[totalScore].character}.</h4>
+        <img src=${characterResult[totalScore].characterImage} alt=${characterResult[totalScore].characterAlt} class="character-picture">
+        <h4>${characterResult[totalScore].characterText}</h4>
+        <button class="try-again">Try Again</button>
+        `);
+    restartQuiz();
+}
+
+//listen for the 'next' button to be clicked and load the next question
 function nextQuestion() {
     $('.next-question').click(function(event) {
         if (questionNumber + 1 < 10) {
@@ -63,10 +77,7 @@ function nextQuestion() {
     });
 }
 
-//display that the answer is correct
-//show a relevant picture of the correct answer
-//show the 'next question' button
-//listen for 'next question' click
+//provide feedback about a correct answer
 function feedbackCorrect() {
     $('.js-feedback').html(`<h3>Correct!</h3>
         <img src=${appData[questionNumber].rightImage} alt=${appData[questionNumber].rightAlt} class="correct-picture">
@@ -81,10 +92,7 @@ function playNoPleaseNo() {
     noPleaseNo.play();
 }
 
-//call the 'no-please-no' audio function
-//display that the answer is incorrect
-//display the correct answer
-//show a negative picture from the Office
+//provide feedback about an incorrect answer
 function feedbackWrong() {
     playNoPleaseNo();
     $('.js-feedback').html(`<h3>Incorrect!</h3><h4>The correct answer was '${appData[questionNumber].rightAnswer}'.</h4>
@@ -94,26 +102,20 @@ function feedbackWrong() {
     nextQuestion();
 }
 
-//hide the 'submit' button
-//display the 'next' button
-//display feedback picture and text
-//play audio?
-//increase the score
+//the answer is right!
 function quizQuestionCorrect() {
     $('button.submit-answer').css("display", "none");
     addPoint();
     feedbackCorrect();
 }
 
+//the answer is wrong!
 function quizQuestionWrong() {
     $('button.submit-answer').css("display", "none");
     feedbackWrong();
 }
 
-//watch for the submit button to be clicked
-//get the value of the clicked radio button in the form
-//compare the submitted answer to the correct answer
-//provide feedback
+//listen for the 'submit' button to be clicked and check if the answer is right
 function submitAnswer() {
     $('form').on('submit', function(event) {
         event.preventDefault();
@@ -128,17 +130,13 @@ function submitAnswer() {
     });
 }
 
+//lower the volume on the theme audio control to 35%
 function lowerVolume() {
     let turnItDown = document.getElementById("office-theme");
     turnItDown.volume = 0.35;
-    console.log("turned down the volume")
 }
 
-//start the quiz
-//remove the start button
-//set top "nav" bar to black background and show its divs
-//display question
-//display the answer form
+//listen for the 'start' button to be clicked and load the first question
 function startQuiz() {
     lowerVolume();
     $('.js-start-quiz').click(function(event) {
@@ -151,4 +149,5 @@ function startQuiz() {
     });
 }
 
+//after the page loads, run the startQuiz function
 $(startQuiz);
