@@ -14,7 +14,7 @@ body {
     min-width: 350px;
 }
 
-nav {
+.question-and-score {
     height: 50px;
     margin: 0px 0px 5px 0px;
     color: white;
@@ -22,7 +22,7 @@ nav {
     justify-content: space-between;
 }
 
-nav div {
+.question-and-score div {
     display: none;
     text-align: center;
     margin: auto;
@@ -95,6 +95,10 @@ p.teaser {
     margin-right: auto;
     text-align: left;
     width: 100%;
+}
+
+fieldset {
+    border: none;
     height: 230px;
 }
 
@@ -111,6 +115,10 @@ p.teaser {
 }
 
 .answer-option-hover:hover {
+    background-color: blue;
+}
+
+.highlight-answer {
     background-color: blue;
 }
 
@@ -188,7 +196,7 @@ audio {
 
 
 @media screen and (min-width: 600px) {
-    nav {
+    .question-and-score {
         height: 75px;
     }
     
@@ -223,6 +231,9 @@ audio {
 
     .answer-form {
         width: 70%;
+    }
+
+    fieldset {
         height: 400px;
     }
 
@@ -269,7 +280,7 @@ audio {
 }
 
 @media screen and (min-width: 1350px) {
-    nav {
+    .question-and-score {
         height: 100px;
     }
     
@@ -301,6 +312,9 @@ audio {
 
     .answer-form {
         width: 50%;
+    }
+
+    fieldset {
         height: 420px;
     }
 

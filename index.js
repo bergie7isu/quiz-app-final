@@ -9,6 +9,7 @@ function displayNextQuestion() {
 //set the html in the answer section
 function displayNextAnswer() {
     $(".js-answers").html(`<form class="answer-form js-answer-form">
+            <fieldset>
             <label for="option1" class="answer-option answer-option-hover">
                 <input type="radio" name="multi-choice" id="option1" value="${appData[questionNumber].answers[0]}" required>${appData[questionNumber].answers[0]}
             </label>
@@ -22,6 +23,7 @@ function displayNextAnswer() {
                 <input type="radio" name="multi-choice" id="option4" value="${appData[questionNumber].answers[3]}" required>${appData[questionNumber].answers[3]}
             </label>
             <button type="submit" class="submit-answer">Submit</button>
+            </fieldset>
         </form>`);
 }
 
@@ -118,7 +120,12 @@ function quizQuestionWrong() {
 //disable the radio buttons
 function disableRadioButtons() {
     for (let i = 1; i <= 4; i++) {
-        document.getElementById(`option${i}`).disabled = true;
+        if (!$(`#option${i}`).is(':checked')) {
+            document.getElementById(`option${i}`).disabled = true;
+        }
+        else {
+            $(`label[for="option${i}"]`).addClass('highlight-answer');
+        }
         $(`label[for="option${i}"]`).removeClass('answer-option-hover');
     };
 }
@@ -150,8 +157,8 @@ function startQuiz() {
     lowerVolume();
     $('.js-start-quiz').click(function(event) {
         $(this).remove();
-        $("nav").css("background-color", "black");
-        $("nav div").css("display", "inline-block");
+        $(".question-and-score").css("background-color", "black");
+        $(".question-and-score div").css("display", "inline-block");
         displayNextQuestion();
         displayNextAnswer();
         submitAnswer();
